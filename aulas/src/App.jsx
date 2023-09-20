@@ -1,35 +1,66 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cvalue, setValue] = useState(2)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <section className='section-main'>
+        <div className='container-card'>
+          <h1>Cadastrar tarefa</h1>
+          <hr />
+          <form>
+
+            <label for='title'></label>
+            <input 
+              type='text'
+              name='title'
+              id='title'
+              placeholder='Digite o título da tarefa'
+            />
+
+            <label for='category'>Categoria</label>
+            <select name='category' id='category'>
+              <option value="">Selecione uma categoria</option>
+              <option value="UX/UI">UX/UI</option>
+              <option value="Testes">Testes</option>
+            </select>
+
+            <label for='member'>Membros</label>
+            <select name='member' id='member'>
+              <option value="">Selecione um membro da equipe</option>
+              <option value="Anderson">Anderson</option>
+              <option value="José">José</option>
+            </select>
+
+            <button className='btn-register' type='submit'>
+              Cadastrar
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+      <section className='section-main'>
+        <div className='container-card'>
+          <h1>Listar tarefa</h1>
+          <hr />
+        </div>
+        </section>
+        <footer className='footer-main'>
+          <p>
+            <strong>
+              Introdução ao Desenvolvimento
+              Front-end com React
+            </strong>
+          </p>
+            <em>
+              Professor: Anderson Carvalho
+            </em>
+        </footer>
+    </div>
+    )
 }
 
 export default App
