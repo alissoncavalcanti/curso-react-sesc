@@ -22,11 +22,38 @@ function App() {
 
     setTasks(newTaskArray);
   }
+
+  const startTask = (id) => {
+    const newTasks =[...tasks]; //os 3 pontos copiam o objeto
+    newTasks.map((task) => 
+      task.id === id ? (task.status = 'doing') : task //? e : é o if ternário
+    );
+    setTasks(newTasks);
+  }
+
+  const closeTask = (id) => {
+    const newTasks =[...tasks]; //os 3 pontos copiam o objeto
+    newTasks.map((task) => 
+      task.id === id ? (task.status = 'done') : task //? e : é o if ternário
+    );
+    setTasks(newTasks);
+  }
+
+  const deleteTask = (id) => {
+    const newTasks = [...tasks];
+    const filteredTasks = newTasks.filter(task => task.id !== id ? task : null); //filtra apenas as que tem id diferente e depois as lista
+    setTasks(filteredTasks);
+  }
   
   return (
     <div>
       <TaskForm addTask={addTask}/>
-      <TasksList tasks={tasks} />
+      <TasksList 
+        tasks={tasks}
+        startTask={startTask}
+        closeTask={closeTask}
+        deleteTask={deleteTask}
+      />
       <Footer />
     </div>
     )

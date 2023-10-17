@@ -1,4 +1,6 @@
-function Task ( {title, member, category, status}) {
+import './style.css'
+
+function Task ( {id, title, member, category, status, startTask, closeTask, deleteTask}) {
     return (
         <>
         <div className='task'>
@@ -10,9 +12,9 @@ function Task ( {title, member, category, status}) {
               <span className={`task-${status}`}>{status}</span>
             </div>
             <div className='task-actions'>
-              <button className='btn-start'>Iniciar</button>
-              <button className='btn-close'>Finalizar</button>
-              <button className='btn-delete'>X</button>
+              <button className='btn-start' onClick={() => startTask(id)}>Iniciar</button>
+              <button className='btn-close' onClick={() => closeTask(id)}>Finalizar</button>
+              <button className='btn-delete' onClick={() => deleteTask(id)}>X</button>
             </div>
           </div>
           <hr />
