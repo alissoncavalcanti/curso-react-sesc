@@ -72,6 +72,7 @@ input, select {
 .btn-register {
   margin-top: 15px;
   color: #FFFFFF;
+  text-decoration:none;
 }
 
 .btn-register:hover {
@@ -82,6 +83,7 @@ input, select {
   color: #00d8be;
   border: solid 1.5px #00d8be;
   background-color: transparent;
+  text-decoration:none;
 }
 
 .btn-start:hover {
@@ -93,6 +95,7 @@ input, select {
   color: #302675;
   border: solid 1.5px #302675;
   background-color: transparent;
+  text-decoration:none;
 }
 
 .btn-close:hover {
@@ -105,6 +108,7 @@ input, select {
   color: #d14f6b;
   border: solid 1.5px #d14f6b;
   background-color: transparent;
+  text-decoration:none;
 }
 
 .btn-delete:hover {
