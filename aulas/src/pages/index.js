@@ -5,5 +5,5 @@ import TasksPage from "./tasks"
 export {
     HomePage,
     ProjectsPage,
-    TasksPage
+    TasksPage,
 }

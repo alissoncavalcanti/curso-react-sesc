@@ -1,8 +1,13 @@
 import {Card, CardActions, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
 
 function HomePage() {
     return (
+        
+        <>
+        
         <Container maxwidth="md"
         sx={{
             marginY:'20px'
@@ -163,6 +168,8 @@ function HomePage() {
             </Grid>
 
         </Container>
+        <Footer/>
+        </>
     )
 }
 export default HomePage;
