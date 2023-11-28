@@ -14,7 +14,7 @@ function ProjectForm({ addProject }) {
   const [currentDeadline, setCurrentDeadline] = useState(null);
   const [currentEndDate, setCurrentEndDate] = useState(null);
   const [currentClient, setCurrentClient] = useState("");
-  const [currentStatus, setCurrentStatus] = useState("");
+  const [currentStatus, setCurrentStatus] = useState("todo");
   const [currentTeam, setCurrentTeam] = useState("");
 
   const handleSubmit = (event) => {
@@ -23,10 +23,8 @@ function ProjectForm({ addProject }) {
     if (
       !currentTitle ||
       !currentDescription ||
-      !currentStartDate ||
-      !currentEndDate ||
+      !currentDeadline ||
       !currentClient ||
-      !currentStatus ||
       !currentTeam
     ) {
       alert("Todos os campos são obrigatórios!");
@@ -61,7 +59,7 @@ function ProjectForm({ addProject }) {
       <div className="container-card">
         <Box
           sx={{
-            "& .MuiTextField-root": { marginY: 1},
+            "& .MuiTextField-root": { marginY: 1 },
           }}
         >
           <h1>Cadastrar projeto</h1>
@@ -76,7 +74,7 @@ function ProjectForm({ addProject }) {
               onChange={(event) => setCurrentTitle(event.target.value)}
             />
             <TextField
-            fullWidth
+              fullWidth
               name="description"
               id="description"
               placeholder="Digite a descrição do projeto"
@@ -95,7 +93,6 @@ function ProjectForm({ addProject }) {
               onChange={(event) => setCurrentClient(event.target.value)}
             />
             <TextField
-            fullWidth
               select
               fullWidth
               label="Equipe"
@@ -114,58 +111,58 @@ function ProjectForm({ addProject }) {
                   );
                 })}
             </TextField>
-            <Box sx ={{
+            <Box sx={{
               display: 'flex',
               gap: {
                 xs: '0',
                 sm: '0',
                 md: '1em',
                 lg: '1em',
-                xl: '1em'
+                xl: '1em',
               },
               flexDirection: {
                 xs: 'column',
                 sm: 'column',
                 md: 'row',
                 lg: 'row',
-                xl: 'row'
+                xl: 'row',
               }
-            }}>
+              }}>
               <LocalizationProvider
                 adapterLocale={ptBR}
                 dateAdapter={AdapterDateFns}
               >
                 <DatePicker
-                  width="33%"
-                  id='startDate'
-                  label='Data de início'
+                  id="startDate"
+                  label="Data de início"
                   value={currentStartDate}
+                  onChange={(event) => setCurrentStartDate(event)}
                 />
-                </LocalizationProvider>
-                <LocalizationProvider
+              </LocalizationProvider>
+              <LocalizationProvider
                 adapterLocale={ptBR}
                 dateAdapter={AdapterDateFns}
               >
                 <DatePicker
-                width="33%"
-                  id='endDate'
-                  label='Data de finalização'
+                  id="endDate"
+                  label="Data de finalização"
                   value={currentEndDate}
+                  onChange={(event) => setCurrentEndDate(event)}
                 />
-                </LocalizationProvider>
-                <LocalizationProvider
+              </LocalizationProvider>
+              <LocalizationProvider
                 adapterLocale={ptBR}
                 dateAdapter={AdapterDateFns}
               >
-                <DatePicker 
-                width="33%"
-                  id='deadline'
-                  label='Previsão de entrega'
+                <DatePicker
+                  id="deadline"
+                  label="Previsão de entrega"
                   value={currentDeadline}
+                  onChange={(event) => setCurrentDeadline(event)}
                 />
               </LocalizationProvider>
             </Box>
-            <hr/>
+            <hr />
             <button className="btn-register" type="submit">
               Cadastrar
             </button>
