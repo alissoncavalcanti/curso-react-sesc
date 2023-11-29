@@ -17,76 +17,75 @@ function Project( {
   const [teams] = useState(dataTeams);
 
   const getNameTeamById = (id) => {
-    const filteredTeam = teams.find((team) => team.id === id)
+    const filteredTeam = teams.find((team) => team.id === id )
     return filteredTeam.name;
   }
 
   return (
     <>
-      <Grid container >
+      <Grid container>
         <Grid item xs={12} paddingBottom={2}>
-        <Typography variant='h5' marginRight={2} display="inline">
+          <Typography variant='h5' marginRight={2} display="inline">
             {title}
           </Typography>
-          <Typography variant='body2' component="span" className="task-todo">
+          <Typography variant='body2' component="span" className={`task-${status}`}>
             {status}
           </Typography>
         </Grid>
-        <Grid item xs={12} paddingBottom={2}>
+        <Grid item xs={12}>
           <Typography variant='body2'>
             {description}
           </Typography>
         </Grid>
         <Grid item xs={12} paddingTop={2}>
           <Grid container>
-        <Grid item xs={2}>
-          <Typography variant='body2' fontStyle={"oblique"}>
-            Cliente
-          </Typography>
-          <Typography variant='body2' fontWeight={"bold"}>
-            {client}
-          </Typography>
+            <Grid item xs={2}>
+              <Typography variant='body2' fontStyle="oblique">
+                Cliente
+              </Typography>
+              <Typography variant='body2' fontWeight="bold">
+                {client}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant='body2' fontStyle="oblique">
+                Equipe
+              </Typography>
+              <Typography variant='body2' fontWeight="bold">
+                {getNameTeamById(idTeam)}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant='body2' fontStyle="oblique">
+                Previsão
+              </Typography>
+              <Typography variant='body2' fontWeight="bold">
+                {deadline}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant='body2' fontStyle="oblique">
+                Início
+              </Typography>
+              <Typography variant='body2' fontWeight="bold">
+                {startDate}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant='body2' fontStyle="oblique">
+                Término
+              </Typography>
+              <Typography variant='body2' fontWeight="bold">
+                {endDate}
+              </Typography>
+            </Grid>
+            <Grid item xs={2} display="flex" justifyContent="flex-end">
+              <div className='task-actions'>
+                <button className='btn-delete' onClick={() => deleteProject(id)}>x</button>
+              </div>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={2}>
-          <Typography variant='body2' fontStyle={"oblique"}>
-            Equipe
-          </Typography>
-          <Typography variant='body2' fontWeight={"bold"}>
-            {getNameTeamById(idTeam)}
-          </Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography variant='body2' fontStyle={"oblique"}>
-            Previsão
-          </Typography>
-          <Typography variant='body2' fontWeight={"bold"}>
-            {deadline}
-          </Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography variant='body2' fontStyle={"oblique"}>
-            Início
-          </Typography>
-          <Typography variant='body2' fontWeight={"bold"}>
-            {startDate}
-          </Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography variant='body2' fontStyle={"oblique"}>
-            Término
-          </Typography>
-          <Typography variant='body2' fontWeight={"bold"}>
-            {endDate}
-          </Typography>
-        </Grid>
-        <Grid item xs={2} display="flex" justifyContent="flex-end">
-        <div className='task-actions'>
-          <button className='btn-delete' onClick={() => deleteProject(id)}>x</button>
-        </div>
-        </Grid>
-        </Grid>
-        </Grid>
-        
       </Grid>
       <hr />
     </>
