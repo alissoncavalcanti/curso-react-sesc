@@ -1,9 +1,12 @@
+import { useContext } from "react";
+
 import {Card, CardActions, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 import Footer from "../../components/footer";
-import Header from "../../components/header";
+import { TaskContext } from "../../context/task-context";
 
 function HomePage() {
+
     return (
         
         <>
